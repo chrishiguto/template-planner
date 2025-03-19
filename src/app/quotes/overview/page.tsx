@@ -19,7 +19,7 @@ import {
   TableRow,
 } from "@/components/Table"
 import { quotes } from "@/data/data"
-import { cx } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import { Download } from "lucide-react"
 import { Fragment } from "react"
 
@@ -108,7 +108,7 @@ export default function Overview() {
                         {item.assigned.map((name, nameIndex) => (
                           <span
                             key={nameIndex}
-                            className={cx(
+                            className={cn(
                               getRandomColor(name.initials),
                               "inline-flex size-5 items-center justify-center rounded-full text-xs font-medium text-white ring-2 ring-white dark:text-white dark:ring-[#090E1A]",
                             )}
@@ -132,7 +132,7 @@ export default function Overview() {
                         className="rounded-full"
                       >
                         <span
-                          className={cx(
+                          className={cn(
                             "size-1.5 shrink-0 rounded-full",
                             "bg-gray-500 dark:bg-gray-500",
                             {

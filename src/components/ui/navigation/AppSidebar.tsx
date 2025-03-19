@@ -14,7 +14,7 @@ import {
   SidebarMenuSub,
   SidebarSubLink,
 } from "@/components/Sidebar"
-import { cx, focusRing } from "@/lib/utils"
+import { cn, focusRing } from "@/lib/utils"
 import { RiArrowDownSFill } from "@remixicon/react"
 import { BookText, House, PackageSearch } from "lucide-react"
 import * as React from "react"
@@ -153,7 +153,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   {/* @CHRIS/SEV: discussion whether to componentize (-> state mgmt) */}
                   <button
                     onClick={() => toggleMenu(item.name)}
-                    className={cx(
+                    className={cn(
                       "flex w-full items-center justify-between gap-x-2.5 rounded-md p-2 text-base text-gray-900 transition hover:bg-gray-200/50 sm:text-sm dark:text-gray-400 hover:dark:bg-gray-900 hover:dark:text-gray-50",
                       focusRing,
                     )}
@@ -166,7 +166,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       {item.name}
                     </div>
                     <RiArrowDownSFill
-                      className={cx(
+                      className={cn(
                         openMenus.includes(item.name)
                           ? "rotate-0"
                           : "-rotate-90",

@@ -1,10 +1,10 @@
 // Tremor Accordion [v0.0.1]
 
-import React from "react"
 import * as AccordionPrimitives from "@radix-ui/react-accordion"
 import { RiArrowDownSLine } from "@remixicon/react"
+import React from "react"
 
-import { cx } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 const Accordion = AccordionPrimitives.Root
 
@@ -16,7 +16,7 @@ const AccordionTrigger = React.forwardRef<
 >(({ className, children, ...props }, forwardedRef) => (
   <AccordionPrimitives.Header className="flex">
     <AccordionPrimitives.Trigger
-      className={cx(
+      className={cn(
         // base
         "group flex flex-1 cursor-pointer items-center justify-between py-3 text-left text-sm font-medium leading-none",
         // text color
@@ -32,9 +32,9 @@ const AccordionTrigger = React.forwardRef<
     >
       {children}
       <RiArrowDownSLine
-        className={cx(
+        className={cn(
           // base
-          "size-5 shrink-0 transition-transform duration-150 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180",
+          "ease-[cubic-bezier(0.87,_0,_0.13,_1)] size-5 shrink-0 transition-transform duration-150 group-data-[state=open]:rotate-180",
           // text color
           "text-gray-400 dark:text-gray-600",
           // disabled
@@ -55,13 +55,13 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, forwardedRef) => (
   <AccordionPrimitives.Content
     ref={forwardedRef}
-    className={cx(
+    className={cn(
       "transform-gpu data-[state=closed]:animate-accordionClose data-[state=open]:animate-accordionOpen",
     )}
     {...props}
   >
     <div
-      className={cx(
+      className={cn(
         // base
         "overflow-hidden pb-4 text-sm",
         // text color
@@ -82,7 +82,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <AccordionPrimitives.Item
     ref={forwardedRef}
-    className={cx(
+    className={cn(
       // base
       "overflow-hidden border-b first:mt-0",
       // border color

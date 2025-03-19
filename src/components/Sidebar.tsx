@@ -7,7 +7,7 @@ import {
   DrawerTitle,
 } from "@/components/Drawer"
 import { useIsMobile } from "@/lib/useMobile"
-import { cx, focusRing } from "@/lib/utils"
+import { cn, focusRing } from "@/lib/utils"
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden"
 import { RiCloseLine } from "@remixicon/react"
 import { PanelLeft } from "lucide-react"
@@ -118,7 +118,7 @@ const SidebarProvider = React.forwardRef<
               ...style,
             } as React.CSSProperties
           }
-          className={cx("flex min-h-svh w-full", className)}
+          className={cn("flex min-h-svh w-full", className)}
           ref={ref}
           {...props}
         >
@@ -170,13 +170,13 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
       >
         {/* This is what handles the sidebar gap on desktop */}
         <div
-          className={cx(
+          className={cn(
             "relative h-svh w-[--sidebar-width] bg-transparent transition-[width] duration-150 ease-in-out will-change-transform",
             "group-data-[collapsible=true]:w-0",
           )}
         />
         <div
-          className={cx(
+          className={cn(
             "fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-150 ease-in-out will-change-transform md:flex",
             "left-0 group-data-[collapsible=true]:left-[calc(var(--sidebar-width)*-1)]",
             "border-r border-gray-200 dark:border-gray-800",
@@ -207,7 +207,7 @@ const SidebarTrigger = React.forwardRef<
     <button
       ref={ref}
       data-sidebar="trigger"
-      className={cx(
+      className={cn(
         "group inline-flex rounded-md p-1.5 hover:bg-gray-200/50 hover:dark:bg-gray-900",
         focusRing,
       )}
@@ -235,7 +235,7 @@ const SidebarFooter = React.forwardRef<
     <div
       ref={ref}
       data-sidebar="footer"
-      className={cx("flex flex-col gap-2 p-3", className)}
+      className={cn("flex flex-col gap-2 p-3", className)}
       {...props}
     />
   )
@@ -250,7 +250,7 @@ const SidebarContent = React.forwardRef<
     <div
       ref={ref}
       data-sidebar="content"
-      className={cx(
+      className={cn(
         "flex min-h-0 flex-1 flex-col gap-2 overflow-auto",
         className,
       )}
@@ -268,7 +268,7 @@ const SidebarHeader = React.forwardRef<
     <div
       ref={ref}
       data-sidebar="header"
-      className={cx("flex flex-col gap-2 p-2", className)}
+      className={cn("flex flex-col gap-2 p-2", className)}
       {...props}
     />
   )
@@ -290,7 +290,7 @@ const SidebarLink = React.forwardRef<
       ref={ref}
       aria-current={isActive ? "page" : undefined}
       data-active={isActive}
-      className={cx(
+      className={cn(
         "flex items-center justify-between rounded-md p-2 text-base transition hover:bg-gray-200/50 sm:text-sm hover:dark:bg-gray-900",
         "text-gray-900 dark:text-gray-400 hover:dark:text-gray-50",
         "data-[active=true]:text-blue-600 data-[active=true]:dark:text-blue-500",
@@ -320,7 +320,7 @@ const SidebarGroup = React.forwardRef<
     <div
       ref={ref}
       data-sidebar="group"
-      className={cx("relative flex w-full min-w-0 flex-col p-3", className)}
+      className={cn("relative flex w-full min-w-0 flex-col p-3", className)}
       {...props}
     />
   )
@@ -334,7 +334,7 @@ const SidebarGroupContent = React.forwardRef<
   <div
     ref={ref}
     data-sidebar="group-content"
-    className={cx("w-full text-sm", className)}
+    className={cn("w-full text-sm", className)}
     {...props}
   />
 ))
@@ -347,7 +347,7 @@ const SidebarMenu = React.forwardRef<
   <ul
     ref={ref}
     data-sidebar="menu"
-    className={cx("flex w-full min-w-0 flex-col gap-1", className)}
+    className={cn("flex w-full min-w-0 flex-col gap-1", className)}
     {...props}
   />
 ))
@@ -371,7 +371,7 @@ const SidebarSubLink = React.forwardRef<
       ref={ref}
       aria-current={isActive ? "page" : undefined}
       data-active={isActive}
-      className={cx(
+      className={cn(
         "relative flex gap-2 rounded-md py-1.5 pl-9 pr-3 text-base transition sm:text-sm",
         "text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50",
         "data-[active=true]:rounded data-[active=true]:bg-white data-[active=true]:text-blue-600 data-[active=true]:shadow data-[active=true]:ring-1 data-[active=true]:ring-gray-200 data-[active=true]:dark:bg-gray-900 data-[active=true]:dark:text-blue-500 data-[active=true]:dark:ring-gray-800",
@@ -398,7 +398,7 @@ const SidebarMenuSub = React.forwardRef<
   <ul
     ref={ref}
     data-sidebar="menu-sub"
-    className={cx("relative space-y-1 border-l border-transparent", className)}
+    className={cn("relative space-y-1 border-l border-transparent", className)}
     {...props}
   />
 ))

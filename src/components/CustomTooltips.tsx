@@ -1,5 +1,5 @@
 import { chartColors, getColorClassName } from "@/lib/chartUtils"
-import { cx, formatters } from "@/lib/utils"
+import { cn, formatters } from "@/lib/utils"
 import { TooltipProps } from "./BarChart"
 import { TooltipProps as TooltipComboBarChartProps } from "./ComboChart"
 
@@ -27,7 +27,7 @@ export const CustomTooltip = ({ payload, active }: TooltipProps) => {
         {payload.map((category, index) => (
           <div key={index} className="flex space-x-2.5">
             <span
-              className={cx(
+              className={cn(
                 getColorClassName(category.color, "bg"),
                 "w-1 rounded",
               )}
@@ -47,7 +47,7 @@ export const CustomTooltip = ({ payload, active }: TooltipProps) => {
 
       {percentageDiff && (
         <span
-          className={cx(
+          className={cn(
             parseFloat(percentageDiff) >= 0
               ? "bg-emerald-100 text-emerald-600 dark:bg-emerald-400/20 dark:text-emerald-400"
               : "bg-red-100 text-red-600 dark:bg-red-400/20 dark:text-red-400",
@@ -78,7 +78,7 @@ export const CustomTooltip2 = ({
         {categoriesToShow.map((category, index) => (
           <li key={index} className="flex space-x-2.5">
             <span
-              className={cx(
+              className={cn(
                 category === "Quotes"
                   ? "bg-blue-500 dark:bg-blue-500"
                   : "bg-gray-300 dark:bg-gray-700",
@@ -136,7 +136,7 @@ export const CustomTooltip3 = ({ payload, active }: TooltipProps) => {
         {payload.map((category, index) => (
           <li key={index} className="flex space-x-2.5">
             <span
-              className={cx(chartColors[category.color].bg, "w-1 rounded")}
+              className={cn(chartColors[category.color].bg, "w-1 rounded")}
               aria-hidden="true"
             />
             <div className="space-y-0.5">
@@ -215,7 +215,7 @@ export const CustomTooltip4 = ({ payload, active }: TooltipProps) => {
       <ul role="list" className="grid grid-cols-2 gap-x-4 p-2">
         <li className="flex space-x-2.5">
           <span
-            className={cx(
+            className={cn(
               `bg-${payload[0].color}-500 dark:bg-${payload[0].color}-500`,
               "w-1 rounded",
             )}

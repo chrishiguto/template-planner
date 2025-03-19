@@ -2,7 +2,6 @@
 
 "use client"
 
-import * as React from "react"
 import * as DropdownMenuPrimitives from "@radix-ui/react-dropdown-menu"
 import {
   RiArrowRightSLine,
@@ -10,8 +9,9 @@ import {
   RiCheckLine,
   RiRadioButtonFill,
 } from "@remixicon/react"
+import * as React from "react"
 
-import { cx } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 const DropdownMenu = DropdownMenuPrimitives.Root
 DropdownMenu.displayName = "DropdownMenu"
@@ -37,7 +37,7 @@ const DropdownMenuSubMenuTrigger = React.forwardRef<
 >(({ className, children, ...props }, forwardedRef) => (
   <DropdownMenuPrimitives.SubTrigger
     ref={forwardedRef}
-    className={cx(
+    className={cn(
       // base
       "relative flex cursor-default select-none items-center rounded py-1.5 pl-2 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
       // text color
@@ -67,7 +67,7 @@ const DropdownMenuSubMenuContent = React.forwardRef<
     <DropdownMenuPrimitives.SubContent
       ref={forwardedRef}
       collisionPadding={collisionPadding}
-      className={cx(
+      className={cn(
         // base
         "relative z-50 overflow-hidden rounded-md border p-1 shadow-xl shadow-black/[2.5%]",
         // widths
@@ -111,7 +111,7 @@ const DropdownMenuContent = React.forwardRef<
     <DropdownMenuPrimitives.Portal>
       <DropdownMenuPrimitives.Content
         ref={forwardedRef}
-        className={cx(
+        className={cn(
           // base
           "relative z-50 overflow-hidden rounded-md border p-1 shadow-xl shadow-black/[2.5%]",
           // widths
@@ -153,7 +153,7 @@ const DropdownMenuItem = React.forwardRef<
 >(({ className, shortcut, hint, children, ...props }, forwardedRef) => (
   <DropdownMenuPrimitives.Item
     ref={forwardedRef}
-    className={cx(
+    className={cn(
       // base
       "group/DropdownMenuItem relative flex cursor-pointer select-none items-center rounded py-1.5 pl-2 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
       // text color
@@ -172,14 +172,14 @@ const DropdownMenuItem = React.forwardRef<
     {children}
     {hint && (
       <span
-        className={cx("ml-auto pl-2 text-sm text-gray-400 dark:text-gray-600")}
+        className={cn("ml-auto pl-2 text-sm text-gray-400 dark:text-gray-600")}
       >
         {hint}
       </span>
     )}
     {shortcut && (
       <span
-        className={cx("ml-auto pl-2 text-sm text-gray-400 dark:text-gray-600")}
+        className={cn("ml-auto pl-2 text-sm text-gray-400 dark:text-gray-600")}
       >
         {shortcut}
       </span>
@@ -204,7 +204,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
   ) => (
     <DropdownMenuPrimitives.CheckboxItem
       ref={forwardedRef}
-      className={cx(
+      className={cn(
         // base
         "relative flex cursor-pointer select-none items-center gap-x-2 rounded py-1.5 pl-8 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
         // text color
@@ -231,7 +231,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
       {children}
       {hint && (
         <span
-          className={cx(
+          className={cn(
             "ml-auto text-sm font-normal text-gray-400 dark:text-gray-600",
           )}
         >
@@ -240,7 +240,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
       )}
       {shortcut && (
         <span
-          className={cx(
+          className={cn(
             "ml-auto text-sm font-normal tracking-widest text-gray-400 dark:border-gray-800 dark:text-gray-600",
           )}
         >
@@ -266,7 +266,7 @@ const DropdownMenuRadioItem = React.forwardRef<
   ) => (
     <DropdownMenuPrimitives.RadioItem
       ref={forwardedRef}
-      className={cx(
+      className={cn(
         // base
         "group/DropdownMenuRadioItem relative flex cursor-pointer select-none items-center gap-x-2 rounded py-1.5 pl-8 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
         // text color
@@ -303,7 +303,7 @@ const DropdownMenuRadioItem = React.forwardRef<
       {children}
       {hint && (
         <span
-          className={cx(
+          className={cn(
             "ml-auto text-sm font-normal text-gray-400 dark:text-gray-600",
           )}
         >
@@ -312,7 +312,7 @@ const DropdownMenuRadioItem = React.forwardRef<
       )}
       {shortcut && (
         <span
-          className={cx(
+          className={cn(
             "ml-auto text-sm font-normal tracking-widest text-gray-400 dark:border-gray-800 dark:text-gray-600",
           )}
         >
@@ -330,7 +330,7 @@ const DropdownMenuLabel = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <DropdownMenuPrimitives.Label
     ref={forwardedRef}
-    className={cx(
+    className={cn(
       // base
       "px-2 py-2 text-xs font-medium tracking-wide",
       // text color
@@ -348,7 +348,7 @@ const DropdownMenuSeparator = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <DropdownMenuPrimitives.Separator
     ref={forwardedRef}
-    className={cx(
+    className={cn(
       "-mx-1 my-1 h-px border-t border-gray-200 dark:border-gray-800",
       className,
     )}
@@ -363,7 +363,7 @@ const DropdownMenuIconWrapper = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <div
-      className={cx(
+      className={cn(
         // text color
         "text-gray-600 dark:text-gray-400",
         // disabled
@@ -378,17 +378,17 @@ DropdownMenuIconWrapper.displayName = "DropdownMenuIconWrapper"
 
 export {
   DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuSubMenuTrigger,
-  DropdownMenuSubMenu,
-  DropdownMenuSubMenuContent,
-  DropdownMenuGroup,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuIconWrapper,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuCheckboxItem,
-  DropdownMenuIconWrapper,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
+  DropdownMenuSubMenu,
+  DropdownMenuSubMenuContent,
+  DropdownMenuSubMenuTrigger,
+  DropdownMenuTrigger,
 }

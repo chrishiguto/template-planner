@@ -26,7 +26,7 @@ import {
   getYAxisDomain,
 } from "@/lib/chartUtils"
 import { useOnWindowResize } from "@/lib/useOnWindowResize"
-import { cx } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 //#region Shape
 
@@ -104,7 +104,7 @@ const LegendItem = ({ name, color, onClick }: LegendItemProps) => {
   const hasOnValueChange = !!onClick
   return (
     <div
-      className={cx(
+      className={cn(
         // base
         "group inline-flex flex-nowrap items-center gap-2 whitespace-nowrap rounded px-2 py-1 transition",
         hasOnValueChange
@@ -118,7 +118,7 @@ const LegendItem = ({ name, color, onClick }: LegendItemProps) => {
     >
       <span className="text-xs text-gray-700 dark:text-gray-300">Low</span>
       <span
-        className={cx(
+        className={cn(
           getGradientColorClassName(color),
           "h-1.5 w-14 rounded-full bg-gradient-to-r",
         )}
@@ -147,7 +147,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
   return (
     <ol
       ref={ref}
-      className={cx("relative overflow-hidden", className)}
+      className={cn("relative overflow-hidden", className)}
       {...other}
     >
       <div tabIndex={0} className="flex h-full flex-wrap">
@@ -192,7 +192,7 @@ const ChartLegend = (
     <div
       style={{ paddingLeft: paddingLeft }}
       ref={legendRef}
-      className={cx(
+      className={cn(
         "flex items-center",
         { "justify-center": legendPosition === "center" },
         {
@@ -242,7 +242,7 @@ const ChartTooltip = ({
   if (active && payload && payload.length) {
     return (
       <div
-        className={cx(
+        className={cn(
           // base
           "rounded-md border text-sm shadow-md",
           // border color
@@ -251,9 +251,9 @@ const ChartTooltip = ({
           "bg-white dark:bg-gray-950",
         )}
       >
-        <div className={cx("border-b border-inherit px-4 py-2")}>
+        <div className={cn("border-b border-inherit px-4 py-2")}>
           <p
-            className={cx(
+            className={cn(
               // base
               "font-medium",
               // text color
@@ -263,7 +263,7 @@ const ChartTooltip = ({
             {label}
           </p>
         </div>
-        <div className={cx("space-y-1 px-4 py-2")}>
+        <div className={cn("space-y-1 px-4 py-2")}>
           {payload.map(({ value, category, color }, index) => (
             <div
               key={`id-${index}`}
@@ -272,13 +272,13 @@ const ChartTooltip = ({
               <div className="flex items-center space-x-2">
                 <span
                   aria-hidden="true"
-                  className={cx(
+                  className={cn(
                     "size-2 shrink-0 rounded-sm",
                     getColorClassName(color, "bg"),
                   )}
                 />
                 <p
-                  className={cx(
+                  className={cn(
                     // base
                     "whitespace-nowrap text-right",
                     // text color
@@ -289,7 +289,7 @@ const ChartTooltip = ({
                 </p>
               </div>
               <p
-                className={cx(
+                className={cn(
                   // base
                   "whitespace-nowrap text-right font-medium tabular-nums",
                   // text color
@@ -441,7 +441,7 @@ const ConditionalBarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
     return (
       <div
         ref={forwardedRef}
-        className={cx("h-80 w-full", className)}
+        className={cn("h-80 w-full", className)}
         tremor-id="tremor-raw"
         {...other}
       >
@@ -469,7 +469,7 @@ const ConditionalBarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
           >
             {showGridLines ? (
               <CartesianGrid
-                className={cx("stroke-gray-200 stroke-1 dark:stroke-gray-800")}
+                className={cn("stroke-gray-200 stroke-1 dark:stroke-gray-800")}
                 horizontal={layout !== "vertical"}
                 vertical={layout === "vertical"}
               />
@@ -482,7 +482,7 @@ const ConditionalBarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               }}
               fill=""
               stroke=""
-              className={cx(
+              className={cn(
                 // base
                 "text-xs",
                 // text fill
@@ -529,7 +529,7 @@ const ConditionalBarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               tickLine={false}
               fill=""
               stroke=""
-              className={cx(
+              className={cn(
                 // base
                 "text-xs",
                 // text fill
@@ -644,7 +644,7 @@ const ConditionalBarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             ) : null}
             {categories.map((category) => (
               <Bar
-                className={cx(onValueChange ? "cursor-pointer" : "")}
+                className={cn(onValueChange ? "cursor-pointer" : "")}
                 key={category}
                 name={category}
                 type="linear"

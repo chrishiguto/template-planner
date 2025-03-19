@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/Button"
-import { cx, focusRing } from "@/lib/utils"
+import { cn, focusRing } from "@/lib/utils"
 import { ChevronsUpDown } from "lucide-react"
 
 import { DropdownUserProfile } from "./DropdownUserProfile"
@@ -12,7 +12,7 @@ export function UserProfile() {
       <Button
         aria-label="User settings"
         variant="ghost"
-        className={cx(
+        className={cn(
           "group flex w-full items-center justify-between rounded-md px-1 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200/50 data-[state=open]:bg-gray-200/50 hover:dark:bg-gray-800/50 data-[state=open]:dark:bg-gray-900",
           focusRing,
         )}

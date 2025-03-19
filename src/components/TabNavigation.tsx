@@ -3,7 +3,7 @@
 import * as NavigationMenuPrimitives from "@radix-ui/react-navigation-menu"
 import React from "react"
 
-import { cx, focusRing } from "@/lib/utils"
+import { cn, focusRing } from "@/lib/utils"
 
 export function getSubtree(
   options: {
@@ -44,7 +44,7 @@ const TabNavigation = React.forwardRef<
     asChild={false}
   >
     <NavigationMenuPrimitives.List
-      className={cx(
+      className={cn(
         // base
         "flex items-center justify-start whitespace-nowrap border-b [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
         // border color
@@ -69,7 +69,7 @@ const TabNavigationLink = React.forwardRef<
   <NavigationMenuPrimitives.Item className="flex" aria-disabled={disabled}>
     <NavigationMenuPrimitives.Link
       aria-disabled={disabled}
-      className={cx(
+      className={cn(
         "group relative flex shrink-0 select-none items-center justify-center",
         disabled ? "pointer-events-none" : "",
       )}
@@ -80,7 +80,7 @@ const TabNavigationLink = React.forwardRef<
     >
       {getSubtree({ asChild, children }, (children) => (
         <span
-          className={cx(
+          className={cn(
             // base
             "-mb-px flex items-center justify-center whitespace-nowrap border-b-2 border-transparent px-3 pb-2 text-sm transition-all",
             // text color
